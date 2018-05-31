@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{480932EE-87CE-48D3-8A1D-3DB6062698E2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MonopolioRedes</RootNamespace>
+    <AssemblyName>MonopolioRedes</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Modelo\Banco.cs" />
+    <Compile Include="Modelo\Casilla.cs" />
+    <Compile Include="Modelo\Tipos\Color_Propiedad.cs" />
+    <Compile Include="Modelo\Dado.cs" />
+    <Compile Include="Modelo\Juego.cs" />
+    <Compile Include="Modelo\Jugador.cs" />
+    <Compile Include="Modelo\Propiedad.cs" />
+    <Compile Include="Modelo\Servicio.cs" />
+    <Compile Include="Modelo\Tarjetas\Efecto_Arca.cs" />
+    <Compile Include="Modelo\Tarjetas\Efecto_Casualidad.cs" />
+    <Compile Include="Modelo\Tarjetas\Tarjeta_Arca.cs" />
+    <Compile Include="Modelo\Tarjetas\Tarjeta_Casualidad.cs" />
+    <Compile Include="Modelo\Tipos\Tipo_Casilla.cs" />
+    <Compile Include="Modelo\Tipos\Tipo_Servicio.cs" />
+    <Compile Include="Modelo\Tipos\Tipo_Tren.cs" />
+    <Compile Include="Modelo\Tren.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vista\Inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Inicio.Designer.cs">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Vista\Inicio.resx">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controlador\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\img\ArcaComunal\Dar_50_Jugador.png" />
+    <Content Include="Assets\img\ArcaComunal\Ir_Carcel.png" />
+    <Content Include="Assets\img\ArcaComunal\Recibir_10.png" />
+    <Content Include="Assets\img\ArcaComunal\Recibir_100.png" />
+    <Content Include="Assets\img\ArcaComunal\Recibir_200.png" />
+    <Content Include="Assets\img\ArcaComunal\Recibir_200_Inicio.png" />
+    <Content Include="Assets\img\ArcaComunal\Recibir_50_Jugador.png" />
+    <Content Include="Assets\img\ArcaComunal\Restar_100.png" />
+    <Content Include="Assets\img\ArcaComunal\Restar_150.png" />
+    <Content Include="Assets\img\ArcaComunal\Restar_20.png" />
+    <Content Include="Assets\img\ArcaComunal\Restar_25_Propiedad.png" />
+    <Content Include="Assets\img\ArcaComunal\Salir_Prision.png" />
+    <Content Include="Assets\img\Casualidad\Dar_25_Jugador.png" />
+    <Content Include="Assets\img\Casualidad\Ir_Carcel.png" />
+    <Content Include="Assets\img\Casualidad\Ir_Mendoza_Sur.png" />
+    <Content Include="Assets\img\Casualidad\Ir_San_Luis.png" />
+    <Content Include="Assets\img\Casualidad\Recibir_100.png" />
+    <Content Include="Assets\img\Casualidad\Recibir_150.png" />
+    <Content Include="Assets\img\Casualidad\Recibir_200.png" />
+    <Content Include="Assets\img\Casualidad\Recibir_50.png" />
+    <Content Include="Assets\img\Casualidad\Restar_25_Propiedad.png" />
+    <Content Include="Assets\img\Casualidad\Restar_3_Pasos.png" />
+    <Content Include="Assets\img\Casualidad\Restar_50.png" />
+    <Content Include="Assets\img\Casualidad\Salir_Prision.png" />
+    <Content Include="Assets\img\Propiedades\Agua.png" />
+    <Content Include="Assets\img\Propiedades\BuenosAiresNorte.png" />
+    <Content Include="Assets\img\Propiedades\BuenosAiresSur.png" />
+    <Content Include="Assets\img\Propiedades\CordobaEste.png" />
+    <Content Include="Assets\img\Propiedades\CordobaNorte.png" />
+    <Content Include="Assets\img\Propiedades\CordobaSur.png" />
+    <Content Include="Assets\img\Propiedades\Electricidad.png" />
+    <Content Include="Assets\img\Propiedades\FormosaEste.png" />
+    <Content Include="Assets\img\Propiedades\FormosaNorte.png" />
+    <Content Include="Assets\img\Propiedades\FormosaSur.png" />
+    <Content Include="Assets\img\Propiedades\MedozaEste.png" />
+    <Content Include="Assets\img\Propiedades\MendozaNorte.png" />
+    <Content Include="Assets\img\Propiedades\MendozaSur.png" />
+    <Content Include="Assets\img\Propiedades\NeuquenEste.png" />
+    <Content Include="Assets\img\Propiedades\NeuquenNorte.png" />
+    <Content Include="Assets\img\Propiedades\NeuquenSur.png" />
+    <Content Include="Assets\img\Propiedades\SanJuanEste.png" />
+    <Content Include="Assets\img\Propiedades\SanJuanNorte.png" />
+    <Content Include="Assets\img\Propiedades\SanJuanSur.png" />
+    <Content Include="Assets\img\Propiedades\SanLuisNorte.png" />
+    <Content Include="Assets\img\Propiedades\SanLuisSur.png" />
+    <Content Include="Assets\img\Propiedades\SantaFeEste.png" />
+    <Content Include="Assets\img\Propiedades\SantaFeNorte.png" />
+    <Content Include="Assets\img\Propiedades\SantaFeSur.png" />
+    <Content Include="Assets\img\Propiedades\TrenDelEste.png" />
+    <Content Include="Assets\img\Propiedades\TrenDelNorte.png" />
+    <Content Include="Assets\img\Propiedades\TrenDelOeste.png" />
+    <Content Include="Assets\img\Propiedades\TrenDelSur.png" />
+    <Content Include="Assets\img\Tablero\12239717.png" />
+    <Content Include="Assets\img\Tablero\13E.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
