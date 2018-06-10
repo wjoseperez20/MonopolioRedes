@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MonopolioRedes.Modelo.Tipos
+namespace MonopolioRedes.Modelo.Casillas
 {
     public enum Tipo_Casilla
     {

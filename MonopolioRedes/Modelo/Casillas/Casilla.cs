@@ -1,12 +1,11 @@
-﻿using MonopolioRedes.Modelo.Tipos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MonopolioRedes.Modelo
+namespace MonopolioRedes.Modelo.Casillas
 {
     public class Casilla
     {

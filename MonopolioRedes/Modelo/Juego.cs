@@ -1,34 +1,187 @@
-﻿using MonopolioRedes.Modelo.Tipos;
+﻿using MonopolioRedes.Modelo.Casillas;
 using MonopolioRedes.Modelo.Tarjetas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MonopolioRedes.Modelo
 {
     public class Juego
     {
-        public List<Jugador> Jugadores = new List<Jugador>();
-        public List<Casilla> Casillas = new List<Casilla>();
-        public List<Tarjeta_Arca> Tarjetas_Arca = new List<Tarjeta_Arca>();
-        public List<Tarjeta_Casualidad> Tarjetas_Casualidad = new List<Tarjeta_Casualidad>();
+        public List<Jugador> JugadoresRegistrados;
+        public List<Jugador> JugadoresConectados;
+        public List<Casilla> Casillas;
+        public List<Tarjeta_Arca> Tarjetas_Arca;
+        public List<Tarjeta_Casualidad> Tarjetas_Casualidad;
+        public List<Ficha> Fichas;
         public int Fondo_Impuesto;
         public Banco Banco;
+        public bool Connected;
+        private int _cantidadJugadores;
+        public bool Iniciado;
+        private Random turnoJugador;
 
-        public Juego() {
+        private static Juego _juego = null;
+
+        private Juego()
+        {
+            ValoresIniciales();
+        }
+
+        public static Juego ObtenerJuego
+        {
+            get
+            {
+                if (_juego == null)
+                    _juego = new Juego();
+
+                return _juego;
+            }
+
+            private set { }
+        }
+
+        private void ValoresIniciales()
+        {
+            Casillas = new List<Casilla>();
+
+            JugadoresRegistrados = new List<Jugador>();
+            JugadoresConectados = new List<Jugador>();
+
+            Tarjetas_Arca = new List<Tarjeta_Arca>();
+
+            Tarjetas_Casualidad = new List<Tarjeta_Casualidad>();
+
+            Fichas = new List<Ficha>();
 
             this.Fondo_Impuesto = 0;
 
             this.Banco = new Banco();
 
             Crear_Tablero();
-
             Crear_Tarjetas_Arca();
-
             Crear_Tarjetas_Casualidad();
+            CrearFichas();
+            Connected = false;
+            Iniciado = false;
 
+            turnoJugador = new Random();
+        }
+
+        public bool IniciarPartida()
+        {
+            if (JugadoresConectados.Count < CantidadJugadores)
+                return false;
+
+
+            Iniciado = true;
+
+            List<int> OrdenTurno = new List<int>();
+
+            for(int i = 1; i <= JugadoresConectados.Count; i++)
+            {
+                OrdenTurno.Add(i);
+            }
+
+            int index = 0;
+
+            foreach(Jugador jugador in JugadoresConectados)
+            {
+                index = turnoJugador.Next(0, OrdenTurno.Count);
+                jugador.Turno = OrdenTurno.ElementAt(index);
+                OrdenTurno.RemoveAt(index);
+
+                if (jugador.Turno == 1)
+                    jugador.Turno_Activo = true;
+            }
+
+            return true;
+
+        }
+
+        public void AsignarFichaJugador(Jugador jugador)
+        {
+            if (jugador.Ficha != null)
+                return;
+
+            jugador.Ficha = _juego.Fichas.Find(f => !f.Asignada);
+            jugador.Ficha.Asignada = true;
+        }
+
+        public void ReiniciarJuego()
+        {
+            ValoresIniciales();
+        }
+
+
+        public void GestionarJugadaJugador(Jugador jugador)
+        {
+            jugador.Realizar_Jugada();
+
+            return;
+
+            int CasillaId = jugador.Posicion;
+
+            Casilla _casilla = Casillas.Find(c => c.Posicion == CasillaId);
+
+            if (_casilla == null)
+                return;
+
+            if (_casilla.Tipo == Tipo_Casilla.Inicio)
+            {
+                return;
+            }
+
+            if (_casilla.Tipo == Tipo_Casilla.Arca_Comunal)
+            {
+                return;
+            }
+
+            if(_casilla.Tipo == Tipo_Casilla.Casualidad)
+            {
+                return;
+            }
+
+            if(_casilla.Tipo == Tipo_Casilla.Detencion)
+            {
+                return;
+            }
+
+            if(_casilla.Tipo == Tipo_Casilla.Parking)
+            {
+                return;
+            }
+
+            if(_casilla.Tipo == Tipo_Casilla.Impuesto)
+            {
+                return;
+            }
+
+            if(_casilla.Tipo == Tipo_Casilla.Propiedad)
+            {
+                return;
+            }
+
+            if(_casilla.Tipo == Tipo_Casilla.Servicio)
+            {
+                return;
+            }
+
+            if(_casilla.Tipo == Tipo_Casilla.Tren)
+            {
+                return;
+            }
+
+
+
+        }
+        public int CantidadJugadores
+        {
+            get { return _cantidadJugadores; }
+            set { _cantidadJugadores = value; }
         }
 
         private void Crear_Tablero()
@@ -37,8 +190,6 @@ namespace MonopolioRedes.Modelo
             {
 
                 Propiedad Propiedad;
-                Servicio Servicio;
-                Tren Tren;
                 Casilla Casilla;
 
                 if (i == 0)
@@ -52,7 +203,7 @@ namespace MonopolioRedes.Modelo
                 }
                 else if (i == 1)
                 {
-                    Propiedad = new Propiedad("San Luis Norte", Color_Propiedad.Morado, 60, 2, 10, 30, 90, 160, 250, 30, 50, 50, i, Tipo_Casilla.Propiedad, null);
+                    Propiedad = new Avenida("San Luis Norte", Color_Avenida.Morado, 60, 2, 10, 30, 90, 160, 250, 30, 50, 50, i, Tipo_Casilla.Propiedad, null);
 
                     this.Casillas.Add(Propiedad);
                 }
@@ -67,7 +218,7 @@ namespace MonopolioRedes.Modelo
                 }
                 else if (i == 3)
                 {
-                    Propiedad = new Propiedad("San Luis Sur", Color_Propiedad.Morado, 60, 4, 20, 60, 180, 320, 450, 30, 50, 50, i, Tipo_Casilla.Propiedad, null);
+                    Propiedad = new Avenida("San Luis Sur", Color_Avenida.Morado, 60, 4, 20, 60, 180, 320, 450, 30, 50, 50, i, Tipo_Casilla.Propiedad, null);
 
                     this.Casillas.Add(Propiedad);
                 }
@@ -82,13 +233,13 @@ namespace MonopolioRedes.Modelo
                 }
                 else if (i == 5)
                 {
-                    Tren = new Tren(Tipo_Tren.Tren_Norte, 200, 25, 50, 100, 200, 100, i, Tipo_Casilla.Tren, null);
+                    Propiedad = new Tren("Tren Norte", Tipo_Tren.Tren_Norte, 200, 25, 50, 100, 200, 100, i, Tipo_Casilla.Tren, null);
 
-                    this.Casillas.Add(Tren);
+                    this.Casillas.Add(Propiedad);
                 }
                 else if (i == 6)
                 {
-                    Propiedad = new Propiedad("Formosa Este", Color_Propiedad.Azul_claro, 100, 6, 30, 90, 270, 400, 550, 50, 50, 50, i, Tipo_Casilla.Propiedad, null);
+                    Propiedad = new Avenida("Formosa Este", Color_Avenida.Azul_claro, 100, 6, 30, 90, 270, 400, 550, 50, 50, 50, i, Tipo_Casilla.Propiedad, null);
 
                     this.Casillas.Add(Propiedad);
                 }
@@ -103,13 +254,13 @@ namespace MonopolioRedes.Modelo
                 }
                 else if (i == 8)
                 {
-                    Propiedad = new Propiedad("Formosa Norte", Color_Propiedad.Azul_claro, 100, 6, 30, 90, 270, 400, 550, 50, 50, 50, i, Tipo_Casilla.Propiedad, null);
+                    Propiedad = new Avenida("Formosa Norte", Color_Avenida.Azul_claro, 100, 6, 30, 90, 270, 400, 550, 50, 50, 50, i, Tipo_Casilla.Propiedad, null);
 
                     this.Casillas.Add(Propiedad);
                 }
                 else if (i == 9)
                 {
-                    Propiedad = new Propiedad("Formosa Sur", Color_Propiedad.Azul_claro, 120, 8, 40, 100, 300, 450, 600, 60, 50, 50, i, Tipo_Casilla.Propiedad, null);
+                    Propiedad = new Avenida("Formosa Sur", Color_Avenida.Azul_claro, 120, 8, 40, 100, 300, 450, 600, 60, 50, 50, i, Tipo_Casilla.Propiedad, null);
 
                     this.Casillas.Add(Propiedad);
                 }
@@ -124,49 +275,49 @@ namespace MonopolioRedes.Modelo
                 }
                 else if (i == 11)
                 {
-                    Propiedad = new Propiedad("San Juan Este", Color_Propiedad.Rosado, 140, 10, 50, 150, 450, 625, 750, 70, 100, 100, i, Tipo_Casilla.Propiedad, null);
+                    Propiedad = new Avenida("San Juan Este", Color_Avenida.Rosado, 140, 10, 50, 150, 450, 625, 750, 70, 100, 100, i, Tipo_Casilla.Propiedad, null);
 
                     this.Casillas.Add(Propiedad);
                 }
                 else if (i == 12)
                 {
-                    Servicio = new Servicio(Tipo_Servicio.Servicio_Luz, 150, 75, i, Tipo_Casilla.Servicio, null);
+                    Propiedad = new Servicio("Luz", Tipo_Servicio.Servicio_Luz, 150, 75, i, Tipo_Casilla.Servicio, null);
 
-                    this.Casillas.Add(Servicio);
+                    this.Casillas.Add(Propiedad);
                 }
                 else if (i == 13)
                 {
-                    Propiedad = new Propiedad("San Juan Sur", Color_Propiedad.Rosado, 140, 10, 50, 150, 450, 625, 750, 70, 100, 100, i, Tipo_Casilla.Propiedad, null);
+                    Propiedad = new Avenida("San Juan Sur", Color_Avenida.Rosado, 140, 10, 50, 150, 450, 625, 750, 70, 100, 100, i, Tipo_Casilla.Propiedad, null);
 
                     this.Casillas.Add(Propiedad);
                 }
                 else if (i == 14)
                 {
-                    Propiedad = new Propiedad("San Juan Norte", Color_Propiedad.Rosado, 160, 12, 60, 80, 500, 700, 900, 80, 100, 100, i, Tipo_Casilla.Propiedad, null);
+                    Propiedad = new Avenida("San Juan Norte", Color_Avenida.Rosado, 160, 12, 60, 80, 500, 700, 900, 80, 100, 100, i, Tipo_Casilla.Propiedad, null);
 
                     this.Casillas.Add(Propiedad);
                 }
                 else if (i == 15)
                 {
-                    Tren = new Tren(Tipo_Tren.Tren_Oeste, 200, 25, 50, 100, 200, 100, i, Tipo_Casilla.Tren, null);
+                    Propiedad = new Tren("Tren Oeste", Tipo_Tren.Tren_Oeste, 200, 25, 50, 100, 200, 100, i, Tipo_Casilla.Tren, null);
 
-                    this.Casillas.Add(Tren);
+                    this.Casillas.Add(Propiedad);
                 }
                 else if (i == 16)
                 {
-                    Propiedad = new Propiedad("Neuquen Este", Color_Propiedad.Naranja, 180, 14, 70, 200, 550, 750, 950, 90, 100, 100, i, Tipo_Casilla.Propiedad, null);
+                    Propiedad = new Avenida("Neuquen Este", Color_Avenida.Naranja, 180, 14, 70, 200, 550, 750, 950, 90, 100, 100, i, Tipo_Casilla.Propiedad, null);
 
                     this.Casillas.Add(Propiedad);
                 }
                 else if (i == 18)
                 {
-                    Propiedad = new Propiedad("Neuquen Sur", Color_Propiedad.Naranja, 180, 14, 70, 200, 550, 750, 950, 90, 100, 100, i, Tipo_Casilla.Propiedad, null);
+                    Propiedad = new Avenida("Neuquen Sur", Color_Avenida.Naranja, 180, 14, 70, 200, 550, 750, 950, 90, 100, 100, i, Tipo_Casilla.Propiedad, null);
 
                     this.Casillas.Add(Propiedad);
                 }
                 else if (i == 19)
                 {
-                    Propiedad = new Propiedad("Neuquen Norte", Color_Propiedad.Naranja, 200, 16, 80, 220, 600, 800, 1000, 100, 100, 100, i, Tipo_Casilla.Propiedad, null);
+                    Propiedad = new Avenida("Neuquen Norte", Color_Avenida.Naranja, 200, 16, 80, 220, 600, 800, 1000, 100, 100, 100, i, Tipo_Casilla.Propiedad, null);
 
                     this.Casillas.Add(Propiedad);
                 }
@@ -181,49 +332,49 @@ namespace MonopolioRedes.Modelo
                 }
                 else if (i == 21)
                 {
-                    Propiedad = new Propiedad("Mendoza Este", Color_Propiedad.Rojo, 220, 18, 90, 250, 700, 875, 1050, 110, 150, 150, i, Tipo_Casilla.Propiedad, null);
+                    Propiedad = new Avenida("Mendoza Este", Color_Avenida.Rojo, 220, 18, 90, 250, 700, 875, 1050, 110, 150, 150, i, Tipo_Casilla.Propiedad, null);
 
                     this.Casillas.Add(Propiedad);
                 }
                 else if (i == 23)
                 {
-                    Propiedad = new Propiedad("Mendoza Sur", Color_Propiedad.Rojo, 220, 18, 90, 250, 700, 875, 1050, 110, 150, 150, i, Tipo_Casilla.Propiedad, null);
+                    Propiedad = new Avenida("Mendoza Sur", Color_Avenida.Rojo, 220, 18, 90, 250, 700, 875, 1050, 110, 150, 150, i, Tipo_Casilla.Propiedad, null);
 
                     this.Casillas.Add(Propiedad);
                 }
                 else if (i == 24)
                 {
-                    Propiedad = new Propiedad("Mendoza Norte", Color_Propiedad.Rojo, 240, 20, 100, 300, 750, 925, 1100, 120, 150, 150, i, Tipo_Casilla.Propiedad, null);
+                    Propiedad = new Avenida("Mendoza Norte", Color_Avenida.Rojo, 240, 20, 100, 300, 750, 925, 1100, 120, 150, 150, i, Tipo_Casilla.Propiedad, null);
 
                     this.Casillas.Add(Propiedad);
                 }
                 else if (i == 25)
                 {
-                    Tren = new Tren(Tipo_Tren.Tren_Este, 200, 25, 50, 100, 200, 100, i, Tipo_Casilla.Tren, null);
+                    Propiedad = new Tren("Tren Este", Tipo_Tren.Tren_Este, 200, 25, 50, 100, 200, 100, i, Tipo_Casilla.Tren, null);
 
-                    this.Casillas.Add(Tren);
+                    this.Casillas.Add(Propiedad);
                 }
                 else if (i == 26)
                 {
-                    Propiedad = new Propiedad("Santa fe Este", Color_Propiedad.Amarillo, 260, 22, 110, 330, 800, 975, 1150, 130, 150, 150, i, Tipo_Casilla.Propiedad, null);
+                    Propiedad = new Avenida("Santa fe Este", Color_Avenida.Amarillo, 260, 22, 110, 330, 800, 975, 1150, 130, 150, 150, i, Tipo_Casilla.Propiedad, null);
 
                     this.Casillas.Add(Propiedad);
                 }
                 else if (i == 27)
                 {
-                    Propiedad = new Propiedad("Santa fe Sur", Color_Propiedad.Amarillo, 260, 22, 110, 330, 800, 975, 1150, 130, 150, 150, i, Tipo_Casilla.Propiedad, null);
+                    Propiedad = new Avenida("Santa fe Sur", Color_Avenida.Amarillo, 260, 22, 110, 330, 800, 975, 1150, 130, 150, 150, i, Tipo_Casilla.Propiedad, null);
 
                     this.Casillas.Add(Propiedad);
                 }
                 else if (i == 28)
                 {
-                    Servicio = new Servicio(Tipo_Servicio.Servicio_Agua, 150, 75, i, Tipo_Casilla.Servicio, null);
+                    Propiedad = new Servicio("Agua", Tipo_Servicio.Servicio_Agua, 150, 75, i, Tipo_Casilla.Servicio, null);
 
-                    this.Casillas.Add(Servicio);
+                    this.Casillas.Add(Propiedad);
                 }
                 else if (i == 29)
                 {
-                    Propiedad = new Propiedad("Santa fe Norte", Color_Propiedad.Amarillo, 280, 24, 120, 360, 850, 1025, 1200, 140, 150, 150, i, Tipo_Casilla.Propiedad, null);
+                    Propiedad = new Avenida("Santa fe Norte", Color_Avenida.Amarillo, 280, 24, 120, 360, 850, 1025, 1200, 140, 150, 150, i, Tipo_Casilla.Propiedad, null);
 
                     this.Casillas.Add(Propiedad);
                 }
@@ -238,37 +389,37 @@ namespace MonopolioRedes.Modelo
                 }
                 else if (i == 31)
                 {
-                    Propiedad = new Propiedad("Cordoba Este", Color_Propiedad.Verde, 300, 26, 130, 390, 900, 1100, 1275, 150, 200, 200, i, Tipo_Casilla.Propiedad, null);
+                    Propiedad = new Avenida("Cordoba Este", Color_Avenida.Verde, 300, 26, 130, 390, 900, 1100, 1275, 150, 200, 200, i, Tipo_Casilla.Propiedad, null);
 
                     this.Casillas.Add(Propiedad);
                 }
                 else if (i == 32)
                 {
-                    Propiedad = new Propiedad("Cordoba Sur", Color_Propiedad.Verde, 300, 26, 130, 390, 900, 1100, 1275, 150, 200, 200, i, Tipo_Casilla.Propiedad, null);
+                    Propiedad = new Avenida("Cordoba Sur", Color_Avenida.Verde, 300, 26, 130, 390, 900, 1100, 1275, 150, 200, 200, i, Tipo_Casilla.Propiedad, null);
 
                     this.Casillas.Add(Propiedad);
                 }
                 else if (i == 34)
                 {
-                    Propiedad = new Propiedad("Cordoba Norte", Color_Propiedad.Verde, 320, 28, 150, 450, 1000, 1200, 1400, 160, 200, 200, i, Tipo_Casilla.Propiedad, null);
+                    Propiedad = new Avenida("Cordoba Norte", Color_Avenida.Verde, 320, 28, 150, 450, 1000, 1200, 1400, 160, 200, 200, i, Tipo_Casilla.Propiedad, null);
 
                     this.Casillas.Add(Propiedad);
                 }
                 else if (i == 35)
                 {
-                    Tren = new Tren(Tipo_Tren.Tren_Sur, 200, 25, 50, 100, 200, 100, i, Tipo_Casilla.Tren, null);
+                    Propiedad = new Tren("Tren Sur", Tipo_Tren.Tren_Sur, 200, 25, 50, 100, 200, 100, i, Tipo_Casilla.Tren, null);
 
-                    this.Casillas.Add(Tren);
+                    this.Casillas.Add(Propiedad);
                 }
                 else if (i == 37)
                 {
-                    Propiedad = new Propiedad("Buenos Aires Norte", Color_Propiedad.Azul_Oscuro, 350, 35, 175, 500, 1100, 1300, 1500, 175, 200, 200, i, Tipo_Casilla.Propiedad, null);
+                    Propiedad = new Avenida("Buenos Aires Norte", Color_Avenida.Azul_Oscuro, 350, 35, 175, 500, 1100, 1300, 1500, 175, 200, 200, i, Tipo_Casilla.Propiedad, null);
 
                     this.Casillas.Add(Propiedad);
                 }
                 else if (i == 39)
                 {
-                    Propiedad = new Propiedad("Buenos Aires Sur", Color_Propiedad.Azul_Oscuro, 400, 50, 200, 600, 1400, 1700, 2000, 200, 200, 200, i, Tipo_Casilla.Propiedad, null);
+                    Propiedad = new Avenida("Buenos Aires Sur", Color_Avenida.Azul_Oscuro, 400, 50, 200, 600, 1400, 1700, 2000, 200, 200, 200, i, Tipo_Casilla.Propiedad, null);
 
                     this.Casillas.Add(Propiedad);
                 }
@@ -359,5 +510,12 @@ namespace MonopolioRedes.Modelo
 
         }
 
+        private void CrearFichas()
+        {
+            for(int i = 1; i <= 4; i++)
+            {
+                Fichas.Add(new Ficha(i));
+            }
+        }
     }
 }
