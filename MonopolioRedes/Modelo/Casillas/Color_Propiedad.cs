@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MonopolioRedes.Modelo.Tipos
+namespace MonopolioRedes.Modelo.Casillas
 {
-    public enum Color_Propiedad
+    public enum Color_Avenida
     {
         Morado = 0,
         Azul_claro = 1,

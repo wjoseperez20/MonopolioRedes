@@ -47,21 +47,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Modelo\Banco.cs" />
-    <Compile Include="Modelo\Casilla.cs" />
-    <Compile Include="Modelo\Tipos\Color_Propiedad.cs" />
+    <Compile Include="Modelo\Casillas\Avenida.cs" />
+    <Compile Include="Modelo\Casillas\Casilla.cs" />
+    <Compile Include="Modelo\Casillas\Color_Propiedad.cs" />
+    <Compile Include="Modelo\Casillas\Propiedad.cs" />
+    <Compile Include="Modelo\Casillas\Servicio.cs" />
+    <Compile Include="Modelo\Casillas\Tipo_Casilla.cs" />
+    <Compile Include="Modelo\Casillas\Tipo_Servicio.cs" />
+    <Compile Include="Modelo\Casillas\Tipo_Tren.cs" />
+    <Compile Include="Modelo\Casillas\Tren.cs" />
     <Compile Include="Modelo\Dado.cs" />
+    <Compile Include="Modelo\Ficha.cs" />
     <Compile Include="Modelo\Juego.cs" />
     <Compile Include="Modelo\Jugador.cs" />
-    <Compile Include="Modelo\Propiedad.cs" />
-    <Compile Include="Modelo\Servicio.cs" />
     <Compile Include="Modelo\Tarjetas\Efecto_Arca.cs" />
     <Compile Include="Modelo\Tarjetas\Efecto_Casualidad.cs" />
     <Compile Include="Modelo\Tarjetas\Tarjeta_Arca.cs" />
     <Compile Include="Modelo\Tarjetas\Tarjeta_Casualidad.cs" />
-    <Compile Include="Modelo\Tipos\Tipo_Casilla.cs" />
-    <Compile Include="Modelo\Tipos\Tipo_Servicio.cs" />
-    <Compile Include="Modelo\Tipos\Tipo_Tren.cs" />
-    <Compile Include="Modelo\Tren.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vista\Inicio.cs">
@@ -78,6 +80,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Vista\Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
@@ -96,63 +99,69 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Conexion\" />
     <Folder Include="Controlador\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\img\ArcaComunal\Dar_50_Jugador.png" />
-    <Content Include="Assets\img\ArcaComunal\Ir_Carcel.png" />
-    <Content Include="Assets\img\ArcaComunal\Recibir_10.png" />
-    <Content Include="Assets\img\ArcaComunal\Recibir_100.png" />
-    <Content Include="Assets\img\ArcaComunal\Recibir_200.png" />
-    <Content Include="Assets\img\ArcaComunal\Recibir_200_Inicio.png" />
-    <Content Include="Assets\img\ArcaComunal\Recibir_50_Jugador.png" />
-    <Content Include="Assets\img\ArcaComunal\Restar_100.png" />
-    <Content Include="Assets\img\ArcaComunal\Restar_150.png" />
-    <Content Include="Assets\img\ArcaComunal\Restar_20.png" />
-    <Content Include="Assets\img\ArcaComunal\Restar_25_Propiedad.png" />
-    <Content Include="Assets\img\ArcaComunal\Salir_Prision.png" />
-    <Content Include="Assets\img\Casualidad\Dar_25_Jugador.png" />
-    <Content Include="Assets\img\Casualidad\Ir_Carcel.png" />
-    <Content Include="Assets\img\Casualidad\Ir_Mendoza_Sur.png" />
-    <Content Include="Assets\img\Casualidad\Ir_San_Luis.png" />
-    <Content Include="Assets\img\Casualidad\Recibir_100.png" />
-    <Content Include="Assets\img\Casualidad\Recibir_150.png" />
-    <Content Include="Assets\img\Casualidad\Recibir_200.png" />
-    <Content Include="Assets\img\Casualidad\Recibir_50.png" />
-    <Content Include="Assets\img\Casualidad\Restar_25_Propiedad.png" />
-    <Content Include="Assets\img\Casualidad\Restar_3_Pasos.png" />
-    <Content Include="Assets\img\Casualidad\Restar_50.png" />
-    <Content Include="Assets\img\Casualidad\Salir_Prision.png" />
-    <Content Include="Assets\img\Propiedades\Agua.png" />
-    <Content Include="Assets\img\Propiedades\BuenosAiresNorte.png" />
-    <Content Include="Assets\img\Propiedades\BuenosAiresSur.png" />
-    <Content Include="Assets\img\Propiedades\CordobaEste.png" />
-    <Content Include="Assets\img\Propiedades\CordobaNorte.png" />
-    <Content Include="Assets\img\Propiedades\CordobaSur.png" />
-    <Content Include="Assets\img\Propiedades\Electricidad.png" />
-    <Content Include="Assets\img\Propiedades\FormosaEste.png" />
-    <Content Include="Assets\img\Propiedades\FormosaNorte.png" />
-    <Content Include="Assets\img\Propiedades\FormosaSur.png" />
-    <Content Include="Assets\img\Propiedades\MedozaEste.png" />
-    <Content Include="Assets\img\Propiedades\MendozaNorte.png" />
-    <Content Include="Assets\img\Propiedades\MendozaSur.png" />
-    <Content Include="Assets\img\Propiedades\NeuquenEste.png" />
-    <Content Include="Assets\img\Propiedades\NeuquenNorte.png" />
-    <Content Include="Assets\img\Propiedades\NeuquenSur.png" />
-    <Content Include="Assets\img\Propiedades\SanJuanEste.png" />
-    <Content Include="Assets\img\Propiedades\SanJuanNorte.png" />
-    <Content Include="Assets\img\Propiedades\SanJuanSur.png" />
-    <Content Include="Assets\img\Propiedades\SanLuisNorte.png" />
-    <Content Include="Assets\img\Propiedades\SanLuisSur.png" />
-    <Content Include="Assets\img\Propiedades\SantaFeEste.png" />
-    <Content Include="Assets\img\Propiedades\SantaFeNorte.png" />
-    <Content Include="Assets\img\Propiedades\SantaFeSur.png" />
-    <Content Include="Assets\img\Propiedades\TrenDelEste.png" />
-    <Content Include="Assets\img\Propiedades\TrenDelNorte.png" />
-    <Content Include="Assets\img\Propiedades\TrenDelOeste.png" />
-    <Content Include="Assets\img\Propiedades\TrenDelSur.png" />
-    <Content Include="Assets\img\Tablero\12239717.png" />
-    <Content Include="Assets\img\Tablero\13E.jpg" />
+    <None Include="Resources\FichaAmarilla.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\FichaAzul.png" />
+    <Content Include="Resources\FichaRoja.png" />
+    <Content Include="Resources\FichaVerde.png" />
+    <Content Include="Resources\tablero.jpg" />
+    <Content Include="Resources\Tarjetas\ArcaComunal\Ir_Carcel.png" />
+    <Content Include="Resources\Tarjetas\ArcaComunal\Recibir_10.png" />
+    <Content Include="Resources\Tarjetas\ArcaComunal\Recibir_100.png" />
+    <Content Include="Resources\Tarjetas\ArcaComunal\Recibir_200.png" />
+    <Content Include="Resources\Tarjetas\ArcaComunal\Recibir_200_Inicio.png" />
+    <Content Include="Resources\Tarjetas\ArcaComunal\Recibir_50_Jugador.png" />
+    <Content Include="Resources\Tarjetas\ArcaComunal\Restar_100.png" />
+    <Content Include="Resources\Tarjetas\ArcaComunal\Restar_150.png" />
+    <Content Include="Resources\Tarjetas\ArcaComunal\Restar_20.png" />
+    <Content Include="Resources\Tarjetas\ArcaComunal\Restar_25_Propiedad.png" />
+    <Content Include="Resources\Tarjetas\ArcaComunal\Restar_50_Jugador.png" />
+    <Content Include="Resources\Tarjetas\ArcaComunal\Salir_Prision.png" />
+    <Content Include="Resources\Tarjetas\Casualidad\Dar_25_Jugador.png" />
+    <Content Include="Resources\Tarjetas\Casualidad\Ir_Carcel.png" />
+    <Content Include="Resources\Tarjetas\Casualidad\Ir_Mendoza_Sur.png" />
+    <Content Include="Resources\Tarjetas\Casualidad\Ir_San_Luis.png" />
+    <Content Include="Resources\Tarjetas\Casualidad\Recibir_100.png" />
+    <Content Include="Resources\Tarjetas\Casualidad\Recibir_150.png" />
+    <Content Include="Resources\Tarjetas\Casualidad\Recibir_200_Inicio.png" />
+    <Content Include="Resources\Tarjetas\Casualidad\Recibir_50.png" />
+    <Content Include="Resources\Tarjetas\Casualidad\Restar_25_Propiedad.png" />
+    <Content Include="Resources\Tarjetas\Casualidad\Restar_3_Pasos.png" />
+    <Content Include="Resources\Tarjetas\Casualidad\Restar_50.png" />
+    <Content Include="Resources\Tarjetas\Casualidad\Salir_Prision.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\Agua.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\BuenosAiresNorte.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\BuenosAiresSur.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\CordobaEste.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\CordobaNorte.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\CordobaSur.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\Electricidad.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\FormosaEste.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\FormosaNorte.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\FormosaSur.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\MedozaEste.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\MendozaNorte.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\MendozaSur.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\NeuquenEste.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\NeuquenNorte.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\NeuquenSur.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\SanJuanEste.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\SanJuanNorte.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\SanJuanSur.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\SanLuisNorte.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\SanLuisSur.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\SantaFeEste.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\SantaFeNorte.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\SantaFeSur.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\TrenDelEste.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\TrenDelNorte.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\TrenDelOeste.png" />
+    <Content Include="Resources\Tarjetas\Propiedades\TrenDelSur.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
