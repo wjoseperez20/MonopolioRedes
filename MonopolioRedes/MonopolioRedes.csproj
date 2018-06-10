@@ -99,7 +99,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Conexion\" />
     <Folder Include="Controlador\" />
   </ItemGroup>
   <ItemGroup>
