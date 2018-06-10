@@ -160,32 +160,6 @@ namespace MonopolioRedes.Modelo
             }
         }
 
-
-        public void EnviarMensaje(MonopolioRedes.Conexion.Mensajes.Interfaz.IMensajeServidor IMensajeServidor)
-        {
-            try
-            {
-
-                lock (_cliente)
-                {
-                    string[] paquete = IMensajeServidor.GetMensaje();
-
-                    if (!_cliente.Connected)
-                        return;
-
-                    string mensaje = string.Join(";", paquete);
-
-                    Escritura = Encoding.ASCII.GetBytes(mensaje);
-
-                    _cliente.GetStream().Write(Escritura, 0, Escritura.Length);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Error al enviar mensaje TCP", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         public void AsignarPopiedad(Propiedad propiedad)
         {
             Propiedades.Add(propiedad);

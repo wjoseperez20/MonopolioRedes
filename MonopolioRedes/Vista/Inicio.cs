@@ -37,7 +37,7 @@ namespace MonopolioRedes.Vista
 
             Casilla c_destino = Juego.Casillas.Find(c => c.Posicion == Resultado_Dado);
 
-            Jugador J1 = new Jugador(1, "Wilmer");
+            Jugador J1 = new Jugador("Wilmer");
 
             if (c_destino.Tipo == Tipo_Casilla.Propiedad)
             {
