@@ -25,5 +25,11 @@ namespace MonopolioRedes.Controlador
             serial_port = _sp;
         }
 
+        public Jugador CrearJugador()
+        {
+            Jugador _player = new Jugador();
+            return _player;
+        }
+
     }
 }

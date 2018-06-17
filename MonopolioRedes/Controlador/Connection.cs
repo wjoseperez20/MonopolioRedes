@@ -26,7 +26,10 @@ namespace MonopolioRedes.Controlador
 
         Ventana_Inicio Inicio_Form;
         Ventana_Juego Juego_Form;
+
         Main Controla;
+        Jugador Primer_Jugador = null;
+        Jugador _Jugador = null;
 
         public void Start_Conection(Ventana_Inicio main_form, Main _control)
         {
@@ -56,6 +59,21 @@ namespace MonopolioRedes.Controlador
 
                 if (Controla != null)
                     Controla = null;
+            }
+        }
+
+
+        public void Enviar_Peticion_InicioPartida(Jugador _jugador_Peticion)
+        {
+            try
+            {
+                Primer_Jugador = _jugador_Peticion;
+                Enviar_trama(Convert.ToInt32("00000001", 2), Convert.ToInt32("10000000", 2));
+            }
+            catch (Exception e)
+            {
+                Primer_Jugador = null;
+                MessageBox.Show("ERROR: " + e.ToString());
             }
         }
 
@@ -174,6 +192,28 @@ namespace MonopolioRedes.Controlador
                 bytes_data += ";" + Convert.ToString(Convert.ToInt32(b), 2).PadLeft(8, '0');
             }
             Log_Error.Escribir_Log(@"Logs\tramas_incorrectas.txt", bytes_data + " \n");
+        }
+
+        public void Reenviar_trama()
+        {
+            Thread.Sleep(500);
+            bytes_sending = new byte[4];
+            bytes_sending[0] = Convert.ToByte(Convert.ToInt32(Global_Variable.bandera, 2));
+            bytes_sending[1] = Convert.ToByte(total_flag[1]);
+            bytes_sending[2] = Convert.ToByte(total_flag[2]);
+            bytes_sending[3] = Convert.ToByte(Convert.ToInt32(Global_Variable.bandera, 2));
+            sp.Write(bytes_sending, 0, 4);
+        }
+
+        public void Enviar_trama(int byte_2, int byte_3)
+        {
+            Thread.Sleep(500);
+            bytes_sending = new byte[4];
+            bytes_sending[0] = Convert.ToByte(Convert.ToInt32(Global_Variable.bandera, 2));
+            bytes_sending[1] = Convert.ToByte(byte_2);
+            bytes_sending[2] = Convert.ToByte(byte_3);
+            bytes_sending[3] = Convert.ToByte(Convert.ToInt32(Global_Variable.bandera, 2));
+            sp.Write(bytes_sending, 0, 4);
         }
     }
 }

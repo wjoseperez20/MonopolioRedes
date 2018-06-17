@@ -176,7 +176,6 @@ namespace MonopolioRedes.Modelo
             }
 
 
-
         }
         public int CantidadJugadores
         {
