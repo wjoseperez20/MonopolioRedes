@@ -26,9 +26,6 @@ namespace MonopolioRedes.Controlador
         //Propiedades - Cartas
         public static int id_carta = 1;
         public static int id_propiedad = 1;
-   
-
-        // public static Penitencia_Jugador Penitencia_Activa = Penitencia_Jugador.Sin_penitencia;
 
     }
 }

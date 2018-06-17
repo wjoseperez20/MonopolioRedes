@@ -17,8 +17,7 @@ namespace MonopolioRedes.Vista
     {
         Main controla = new Main();
         Connection sp = new Connection();
-
-        //    Game Juego_Actual = new Game();
+        Juego Juego_Actual = Juego.ObtenerJuego;
 
         public Ventana_Inicio()
         {
@@ -51,9 +50,9 @@ namespace MonopolioRedes.Vista
                 return;
             }
                 
-          //  Jugador Jugador1;
-         //   Jugador1 = controla.CrearJugador(00, false, true);
-         //   sp.Enviar_Peticion_InicioPartida(Jugador1);
+          Jugador Jugador1;
+          Jugador1 = controla.CrearJugador();
+          sp.Enviar_Peticion_InicioPartida(Jugador1);
         }
 
         private void bStartCon_Click(object sender, EventArgs e)

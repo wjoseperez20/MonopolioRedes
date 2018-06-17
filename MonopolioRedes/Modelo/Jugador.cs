@@ -1,11 +1,12 @@
 ﻿using MonopolioRedes.Modelo.Tarjetas;
 using MonopolioRedes.Modelo.Casillas;
-using System;
 using System.Collections.Generic;
+using System.Net.Sockets;
+
+using System;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Net.Sockets;
 using System.Windows.Forms;
 
 namespace MonopolioRedes.Modelo
@@ -22,9 +23,11 @@ namespace MonopolioRedes.Modelo
         private int _turnos_carcel;
         private int _posicion;
         private bool _turno_activo;
+
         public List<Tarjeta_Casualidad> Tarjeta_Casualidad = new List<Tarjeta_Casualidad>();
         public List<Tarjeta_Arca> Tarjeta_Arca = new List<Tarjeta_Arca>();
         public List<Propiedad> Propiedades = new List<Propiedad>();
+
         private TcpClient _cliente;
         public byte[] Lectura;
         public byte[] Escritura;
