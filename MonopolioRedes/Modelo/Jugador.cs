@@ -34,8 +34,9 @@ namespace MonopolioRedes.Modelo
         private int _turno;
         private Ficha _ficha;
 
-        public Jugador()
+        public Jugador(int id)
         {
+            this.Id = id;
             this._cartera = 1500;
             this._detenido = false;
             this._posicion = 0;
@@ -44,6 +45,7 @@ namespace MonopolioRedes.Modelo
             _turno = 0;
             _ficha = null;
         }
+
 
         public int Id
         {
