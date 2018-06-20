@@ -16,5 +16,30 @@ namespace MonopolioRedes.Vista
         {
             InitializeComponent();
         }
+
+        private void Ventana_Juego_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bLanzar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lTablero_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bSaltarTurno_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
