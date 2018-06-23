@@ -177,6 +177,7 @@ namespace MonopolioRedes.Modelo
 
 
         }
+
         public int CantidadJugadores
         {
             get { return _cantidadJugadores; }

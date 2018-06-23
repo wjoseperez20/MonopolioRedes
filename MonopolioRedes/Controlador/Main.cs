@@ -48,9 +48,9 @@ namespace MonopolioRedes.Controlador
         {
            
       
-            //Juego Juego_Actual =  ObtenerJuego();
+            Juego Juego_Actual =  Juego.ObtenerJuego;
 
-         //   return Juego_Actual;
+             return Juego_Actual;
         }
     }
 }

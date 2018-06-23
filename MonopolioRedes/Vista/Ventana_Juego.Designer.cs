@@ -166,6 +166,7 @@
             this.lJugadores.Name = "lJugadores";
             this.lJugadores.Size = new System.Drawing.Size(608, 84);
             this.lJugadores.TabIndex = 26;
+            this.lJugadores.SelectedIndexChanged += new System.EventHandler(this.lJugadores_SelectedIndexChanged);
             // 
             // label1
             // 

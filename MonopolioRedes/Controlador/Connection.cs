@@ -2,17 +2,15 @@
 using System.IO.Ports;
 using MonopolioRedes.Vista;
 using System.Windows.Forms;
-
-
 using System.Collections.Generic;
+using MonopolioRedes.Modelo;
+using System.Threading;
+
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using MonopolioRedes.Modelo;
-
 
 namespace MonopolioRedes.Controlador
 {

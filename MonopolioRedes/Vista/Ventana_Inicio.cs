@@ -51,7 +51,7 @@ namespace MonopolioRedes.Vista
             }
                 
           Jugador Jugador1;
-          Jugador1 = controla.CrearJugador();
+          Jugador1 = controla.CrearJugador(1);
           sp.Enviar_Peticion_InicioPartida(Jugador1);
         }
 
