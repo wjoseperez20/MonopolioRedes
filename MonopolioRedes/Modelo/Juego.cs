@@ -71,6 +71,23 @@ namespace MonopolioRedes.Modelo
             turnoJugador = new Random();
         }
 
+        public int get_id_destino(int id_origen)
+        {
+            int max_id = JugadoresConectados.Count - 1;
+
+            int id_destino;
+            if (id_origen == max_id)
+            {
+                id_destino = 0;
+            }
+            else
+            {
+                id_destino = id_origen + 1;
+            }
+
+            return id_destino;
+        }
+
         public bool IniciarPartida()
         {
             if (JugadoresConectados.Count < CantidadJugadores)
@@ -177,6 +194,7 @@ namespace MonopolioRedes.Modelo
 
 
         }
+
         public int CantidadJugadores
         {
             get { return _cantidadJugadores; }

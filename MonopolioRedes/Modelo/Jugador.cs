@@ -23,6 +23,7 @@ namespace MonopolioRedes.Modelo
         private int _turnos_carcel;
         private int _posicion;
         private bool _turno_activo;
+        private bool _principal;
 
         public List<Tarjeta_Casualidad> Tarjeta_Casualidad = new List<Tarjeta_Casualidad>();
         public List<Tarjeta_Arca> Tarjeta_Arca = new List<Tarjeta_Arca>();
@@ -44,6 +45,7 @@ namespace MonopolioRedes.Modelo
             this._turno_activo = false;
             _turno = 0;
             _ficha = null;
+            _principal = false;
         }
 
 
@@ -125,33 +127,16 @@ namespace MonopolioRedes.Modelo
             set { _ficha = value; }
         }
 
+        public bool Principal { get => _principal; set => _principal = value; }
+
         public void Realizar_Jugada()
         {
-            if (!this._turno_activo)
-                return;
-
             int resultado_dado = Dado.Lanzar_Dado();
 
-            if (this._detenido)
-            {
-                if (Dado.Doble || this._turnos_carcel > 2)
-                {
-                    this._detenido = false;
-                    this._turnos_carcel = 0;
-                    Calcular_Posicion(resultado_dado);
-                }
-                else
-                {
-                    this._turnos_carcel++;
-                }
-            }
-            else
-            {
-                Calcular_Posicion(resultado_dado);
-            }
+            Calcular_Posicion(resultado_dado);
         }
 
-        private void Calcular_Posicion(int resultado_dado)
+        public void Calcular_Posicion(int resultado_dado)
         {
             int casilla_destino = this._posicion + resultado_dado;
 
