@@ -119,7 +119,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(419, 28);
             this.label1.TabIndex = 4;
-            this.label1.Text = "INICIO SESION";
+            this.label1.Text = "Monopolio Redes";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // bComenzar
@@ -141,7 +141,7 @@
             this.label4.Location = new System.Drawing.Point(455, 15);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(131, 208);
+            this.label4.Size = new System.Drawing.Size(146, 208);
             this.label4.TabIndex = 13;
             this.label4.Click += new System.EventHandler(this.label4_Click_1);
             // 
@@ -149,7 +149,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(614, 241);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.bComenzar);

@@ -152,6 +152,7 @@
     <Content Include="Resources\FichaAzul.png" />
     <Content Include="Resources\FichaRoja.png" />
     <Content Include="Resources\FichaVerde.png" />
+    <None Include="Resources\MonopolioGentleman.png" />
     <Content Include="Resources\tablero.jpg" />
     <None Include="Resources\tablero1.jpg" />
     <Content Include="Resources\Tarjetas\ArcaComunal\Ir_Carcel.png" />
