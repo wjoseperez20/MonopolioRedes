@@ -74,6 +74,16 @@ namespace MonopolioRedes.Vista
             lJugadores.Invoke(new Action(InvokeMostrarJugadores));
         }
 
+        public void HabilitarBotonDado()
+        {
+            bLanzar.Invoke(new Action(InvokeHabilitarDado));
+        }
+
+        private void InvokeHabilitarDado()
+        {
+            bLanzar.Enabled = true;
+        }
+
         public void JugadorPrincipal()
         {
 
@@ -96,9 +106,13 @@ namespace MonopolioRedes.Vista
 
         }
 
+ 
         private void bLanzar_Click_1(object sender, EventArgs e)
         {
+            bLanzar.Enabled = false;
             controla.LanzarDado(_jugadorPrincipal);
         }
+
+
     }
 }

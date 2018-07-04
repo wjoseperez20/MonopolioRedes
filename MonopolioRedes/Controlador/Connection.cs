@@ -312,13 +312,14 @@ namespace MonopolioRedes.Controlador
             byte_3 = byte_to_string(total_flag[2]);
 
             int id_usuario = Controla.get_origen(byte_2);
+            int id_destino = Controla.get_destino(byte_2);
 
             if (id_equal_jugador(id_usuario))
             {
                 return;
             }
 
-            Controla.ActualizarPosicionJugador(id_usuario, byte_3);
+            Controla.ActualizarPosicionJugador(id_usuario, id_destino, byte_3);
 
             Reenviar_trama();
 
