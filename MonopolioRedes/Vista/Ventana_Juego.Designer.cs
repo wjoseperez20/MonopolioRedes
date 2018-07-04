@@ -35,10 +35,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lJugadores = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lDado = new System.Windows.Forms.Label();
+            this.lrojo = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.bLanzar = new System.Windows.Forms.Button();
             this.lTablero = new System.Windows.Forms.Label();
-            this.lDado = new System.Windows.Forms.Label();
+            this.lverde = new System.Windows.Forms.Label();
+            this.lamarillo = new System.Windows.Forms.Label();
+            this.lazul = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // bSaltarTurno
@@ -105,6 +109,25 @@
             this.label1.TabIndex = 25;
             this.label1.Text = "Jugadores en la partida:";
             // 
+            // lDado
+            // 
+            this.lDado.AutoSize = true;
+            this.lDado.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lDado.Location = new System.Drawing.Point(1045, 365);
+            this.lDado.Name = "lDado";
+            this.lDado.Size = new System.Drawing.Size(76, 25);
+            this.lDado.TabIndex = 30;
+            this.lDado.Text = "label4";
+            // 
+            // lrojo
+            // 
+            this.lrojo.BackColor = System.Drawing.Color.Transparent;
+            this.lrojo.Image = global::MonopolioRedes.Properties.Resources.FichaRoja;
+            this.lrojo.Location = new System.Drawing.Point(649, 664);
+            this.lrojo.Name = "lrojo";
+            this.lrojo.Size = new System.Drawing.Size(23, 21);
+            this.lrojo.TabIndex = 31;
+            // 
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.Transparent;
@@ -140,15 +163,32 @@
             this.lTablero.TabIndex = 8;
             this.lTablero.Click += new System.EventHandler(this.lTablero_Click);
             // 
-            // lDado
+            // lverde
             // 
-            this.lDado.AutoSize = true;
-            this.lDado.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lDado.Location = new System.Drawing.Point(1045, 365);
-            this.lDado.Name = "lDado";
-            this.lDado.Size = new System.Drawing.Size(76, 25);
-            this.lDado.TabIndex = 30;
-            this.lDado.Text = "label4";
+            this.lverde.BackColor = System.Drawing.Color.Transparent;
+            this.lverde.Image = global::MonopolioRedes.Properties.Resources.FichaVerde;
+            this.lverde.Location = new System.Drawing.Point(678, 664);
+            this.lverde.Name = "lverde";
+            this.lverde.Size = new System.Drawing.Size(23, 21);
+            this.lverde.TabIndex = 32;
+            // 
+            // lamarillo
+            // 
+            this.lamarillo.BackColor = System.Drawing.Color.Transparent;
+            this.lamarillo.Image = global::MonopolioRedes.Properties.Resources.FichaAmarilla1;
+            this.lamarillo.Location = new System.Drawing.Point(649, 695);
+            this.lamarillo.Name = "lamarillo";
+            this.lamarillo.Size = new System.Drawing.Size(23, 21);
+            this.lamarillo.TabIndex = 33;
+            // 
+            // lazul
+            // 
+            this.lazul.BackColor = System.Drawing.Color.Transparent;
+            this.lazul.Image = global::MonopolioRedes.Properties.Resources.FichaAzul1;
+            this.lazul.Location = new System.Drawing.Point(678, 695);
+            this.lazul.Name = "lazul";
+            this.lazul.Size = new System.Drawing.Size(23, 21);
+            this.lazul.TabIndex = 34;
             // 
             // Ventana_Juego
             // 
@@ -156,6 +196,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(1156, 740);
+            this.Controls.Add(this.lazul);
+            this.Controls.Add(this.lamarillo);
+            this.Controls.Add(this.lverde);
+            this.Controls.Add(this.lrojo);
             this.Controls.Add(this.lDado);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lJugadorPropiedades);
@@ -188,5 +232,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lDado;
+        private System.Windows.Forms.Label lrojo;
+        private System.Windows.Forms.Label lverde;
+        private System.Windows.Forms.Label lamarillo;
+        private System.Windows.Forms.Label lazul;
     }
 }

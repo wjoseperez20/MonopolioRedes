@@ -49,12 +49,19 @@ namespace MonopolioRedes.Controlador
         {
             Juego.ObtenerJuego.JugadoresConectados = Jugadores;
    
+            foreach(Jugador jugador in Jugadores)
+            {
+                Juego.ObtenerJuego.AsignarFichaJugador(jugador);
+            }
+
             return Juego.ObtenerJuego;
         }
 
         public void LanzarDado(Jugador jugador)
         {
             jugador.Realizar_Jugada();
+
+            Juego_Form.ActualizarFicha(jugador);
 
             int byte_3 = EnviarDados(); 
 
@@ -107,6 +114,7 @@ namespace MonopolioRedes.Controlador
         { 
 
             string dado_1 = Convert.ToString(Dado.Dado_1, 2).PadLeft(5,'0');
+
             dado_1 = dado_1.PadRight(8, '0');
 
             string dado_2 = Convert.ToString(Dado.Dado_2, 2).PadLeft(8, '0');
@@ -130,6 +138,9 @@ namespace MonopolioRedes.Controlador
             Jugador _jugadorDestino = Juego.ObtenerJuego.JugadoresConectados.Find(x => x.Id == idDestino);
 
             _jugador.Calcular_Posicion(resultado_dado);
+
+            Juego_Form.ActualizarFicha(_jugador);
+
             _jugador.Turno_Activo = false;
             _jugadorDestino.Turno_Activo = true;
 

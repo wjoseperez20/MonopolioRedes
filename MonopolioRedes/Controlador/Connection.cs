@@ -319,9 +319,9 @@ namespace MonopolioRedes.Controlador
                 return;
             }
 
-            Controla.ActualizarPosicionJugador(id_usuario, id_destino, byte_3);
-
             Reenviar_trama();
+
+            Controla.ActualizarPosicionJugador(id_usuario, id_destino, byte_3);
 
         }
 
