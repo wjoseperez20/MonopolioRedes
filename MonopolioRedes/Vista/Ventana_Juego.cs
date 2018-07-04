@@ -74,6 +74,26 @@ namespace MonopolioRedes.Vista
             lJugadores.Invoke(new Action(InvokeMostrarJugadores));
         }
 
+        public void ActualizarFicha(Jugador jugador)
+        {
+            jugador.Ficha.Imagen.Invoke(new Action<Jugador>(InvokeActualizarFicha), jugador);
+        }
+
+        private void InvokeActualizarFicha(Jugador jugador)
+        {
+            jugador.Ficha.Imagen.Location = jugador.Ficha.Coordenadas[jugador.Posicion];
+        }
+
+        public void HabilitarBotonDado()
+        {
+            bLanzar.Invoke(new Action(InvokeHabilitarDado));
+        }
+
+        private void InvokeHabilitarDado()
+        {
+            bLanzar.Enabled = true;
+        }
+
         public void JugadorPrincipal()
         {
 
@@ -91,14 +111,30 @@ namespace MonopolioRedes.Vista
                 else
                     principal = "";
 
+                if (jugador.Id == 0)
+                    jugador.Ficha.AsignarLabel(lrojo);
+                else if (jugador.Id == 1)
+                    jugador.Ficha.AsignarLabel(lamarillo);
+                else if (jugador.Id == 2)
+                    jugador.Ficha.AsignarLabel(lazul);
+                else
+                    jugador.Ficha.AsignarLabel(lverde);
+
+                jugador.Ficha.Imagen.Visible = true;
+                jugador.Ficha.Imagen.Location = jugador.Ficha.Coordenadas[0];
+
                 lJugadores.Items.Add(jugador.Id+" "+principal+": Monedero: " + jugador.Cartera + " Propiedades: " + jugador.Propiedades.Count);
             }
 
         }
 
+ 
         private void bLanzar_Click_1(object sender, EventArgs e)
         {
+            bLanzar.Enabled = false;
             controla.LanzarDado(_jugadorPrincipal);
         }
+
+
     }
 }

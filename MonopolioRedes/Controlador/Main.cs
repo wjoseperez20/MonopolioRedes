@@ -49,12 +49,19 @@ namespace MonopolioRedes.Controlador
         {
             Juego.ObtenerJuego.JugadoresConectados = Jugadores;
    
+            foreach(Jugador jugador in Jugadores)
+            {
+                Juego.ObtenerJuego.AsignarFichaJugador(jugador);
+            }
+
             return Juego.ObtenerJuego;
         }
 
         public void LanzarDado(Jugador jugador)
         {
             jugador.Realizar_Jugada();
+
+            Juego_Form.ActualizarFicha(jugador);
 
             int byte_3 = EnviarDados(); 
 
@@ -107,18 +114,17 @@ namespace MonopolioRedes.Controlador
         { 
 
             string dado_1 = Convert.ToString(Dado.Dado_1, 2).PadLeft(5,'0');
+
             dado_1 = dado_1.PadRight(8, '0');
 
             string dado_2 = Convert.ToString(Dado.Dado_2, 2).PadLeft(8, '0');
 
             int byte_3 = 128 + Convert.ToInt32(dado_1, 2) + Convert.ToInt32(dado_2, 2);
 
-            MessageBox.Show(byte_3.ToString());
-
             return byte_3;
         }
 
-        public void ActualizarPosicionJugador(int idOrigen, string byte_3)
+        public void ActualizarPosicionJugador(int idOrigen, int idDestino, string byte_3)
         {
             string dado_1 = byte_3.Substring(2, 3);
             string dado_2 = byte_3.Substring(5, 3);
@@ -129,12 +135,27 @@ namespace MonopolioRedes.Controlador
             int resultado_dado = Dado.Dado_1 + Dado.Dado_2;
 
             Jugador _jugador = Juego.ObtenerJuego.JugadoresConectados.Find(x => x.Id == idOrigen);
+            Jugador _jugadorDestino = Juego.ObtenerJuego.JugadoresConectados.Find(x => x.Id == idDestino);
 
             _jugador.Calcular_Posicion(resultado_dado);
 
-            
+            Juego_Form.ActualizarFicha(_jugador);
+
+            _jugador.Turno_Activo = false;
+            _jugadorDestino.Turno_Activo = true;
+
+            if(idDestino == Juego_Form._jugadorPrincipal.Id)
+            {
+                MessageBox.Show("Es tu turno!");
+                Juego_Form.HabilitarBotonDado();
+            }
+            else
+            {
+                MessageBox.Show("Es el turno del jugador: " + _jugadorDestino.Id);
+            }
 
         }
+
 
     }
 }

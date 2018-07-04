@@ -4,17 +4,22 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MonopolioRedes.Modelo
 {
     public class Ficha
     {
         private int _id;
-        private bool _asignada;
+        private Label _imagen;
+        private string _nombre;
+        private Dictionary<int, Point> _coordenadas;
 
-        public Ficha(int id)
+        public Ficha(int id, string nombre)
         {
             _id = id;
+            _nombre = nombre;
+            _coordenadas = new Dictionary<int, Point>();
         }
 
         public int Id
@@ -22,10 +27,30 @@ namespace MonopolioRedes.Modelo
             get { return _id; }
         }
 
-        public bool Asignada
+        public Label Imagen
         {
-            get { return _asignada; }
-            set { _asignada = value; }
+            get { return _imagen; }
         }
+
+        public string Nombre
+        {
+            get { return _nombre; }
+        }
+
+        public Dictionary<int, Point> Coordenadas
+        {
+            get { return _coordenadas; }
+            set { _coordenadas = value; }
+        }
+
+        public void AsignarLabel(Label label)
+        {
+            _imagen = label;
+        }
+        public void AsignarCoordenadaFicha(int Casilla, int x, int y)
+        {
+            _coordenadas.Add(Casilla, new Point(x, y));
+        }
+
     }
 }

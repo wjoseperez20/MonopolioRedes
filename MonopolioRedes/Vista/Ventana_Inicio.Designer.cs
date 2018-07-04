@@ -37,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.bComenzar = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +51,7 @@
             this.panel1.Controls.Add(this.tPuerto);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(16, 15);
+            this.panel1.Location = new System.Drawing.Point(6, 15);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(418, 134);
@@ -118,13 +119,13 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(419, 28);
             this.label1.TabIndex = 4;
-            this.label1.Text = "INICIO SESION";
+            this.label1.Text = "Monopolio Redes";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // bComenzar
             // 
             this.bComenzar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bComenzar.Location = new System.Drawing.Point(16, 167);
+            this.bComenzar.Location = new System.Drawing.Point(5, 180);
             this.bComenzar.Margin = new System.Windows.Forms.Padding(4);
             this.bComenzar.Name = "bComenzar";
             this.bComenzar.Size = new System.Drawing.Size(419, 43);
@@ -133,12 +134,24 @@
             this.bComenzar.UseVisualStyleBackColor = true;
             this.bComenzar.Click += new System.EventHandler(this.bComenzar_Click);
             // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Image = global::MonopolioRedes.Properties.Resources.MonopolioGentleman;
+            this.label4.Location = new System.Drawing.Point(455, 15);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(146, 208);
+            this.label4.TabIndex = 13;
+            this.label4.Click += new System.EventHandler(this.label4_Click_1);
+            // 
             // Ventana_Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(460, 224);
+            this.BackColor = System.Drawing.Color.Gray;
+            this.ClientSize = new System.Drawing.Size(614, 241);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.bComenzar);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -162,6 +175,7 @@
         public System.Windows.Forms.TextBox tPuerto;
         public System.Windows.Forms.Button bComenzar;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 

@@ -83,9 +83,59 @@ namespace MonopolioRedes.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FichaAmarilla1 {
+            get {
+                object obj = ResourceManager.GetObject("FichaAmarilla1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FichaAzul {
             get {
                 object obj = ResourceManager.GetObject("FichaAzul", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FichaAzul1 {
+            get {
+                object obj = ResourceManager.GetObject("FichaAzul1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FichaRoja {
+            get {
+                object obj = ResourceManager.GetObject("FichaRoja", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FichaVerde {
+            get {
+                object obj = ResourceManager.GetObject("FichaVerde", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MonopolioGentleman {
+            get {
+                object obj = ResourceManager.GetObject("MonopolioGentleman", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
