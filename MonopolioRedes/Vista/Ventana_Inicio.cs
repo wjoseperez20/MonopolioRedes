@@ -49,10 +49,12 @@ namespace MonopolioRedes.Vista
                 MessageBox.Show("Conexión no iniciada.");
                 return;
             }
-                
-          Jugador Jugador1;
-          Jugador1 = controla.CrearJugador(1);
-          sp.Enviar_Peticion_InicioPartida(Jugador1);
+
+            Jugador Jugador1;
+            Jugador1 = controla.CrearJugador(0);
+            Jugador1.Turno_Activo = true;
+            Jugador1.Principal = true;
+            sp.Enviar_Peticion_InicioPartida(Jugador1);
         }
 
         private void bStartCon_Click(object sender, EventArgs e)

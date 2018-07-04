@@ -127,6 +127,7 @@
             this.bLanzar.TabIndex = 18;
             this.bLanzar.Text = "TIRAR DADO";
             this.bLanzar.UseVisualStyleBackColor = false;
+            this.bLanzar.Click += new System.EventHandler(this.bLanzar_Click_1);
             // 
             // lTablero
             // 
@@ -166,7 +167,7 @@
             this.Controls.Add(this.bLanzar);
             this.Controls.Add(this.lTablero);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Ventana_Juego";
             this.Text = "Ventana_Juego";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Ventana_Juego_FormClosed);

@@ -18,23 +18,20 @@ namespace MonopolioRedes.Vista
         public Juego Juego_Actual;
         Form MainForm;
         Main controla;
-        Jugador Jugador1, Jugador2, Jugador3, Jugador4;
-        Jugador Jugador_Principal;
+        public Jugador _jugadorPrincipal;
 
         public Ventana_Juego(Juego _Juego, Form _MainForm, Main _controla)
         {
             InitializeComponent();
             controla = _controla;
             Juego_Actual = _Juego;
-            //Jugador_Principal = Juego_Actual.Jugadores.Find(j => j.Jugador_Principal == true);
+            _jugadorPrincipal = Juego_Actual.JugadoresConectados.Find(j => j.Principal);
             MainForm = _MainForm;
-          // AsignarJugadores();
-           // AsignarNombres();
-           // ActualizarDatos();
-           // LlenarDataGrid(Jugador_Principal);
-           // LlenarData_Colores();
-           // enable_cargar();
-           // Enable_Turno();
+            bSaltarTurno.Enabled = false;
+            bComprarPropiedad.Enabled = false;
+
+            if (_jugadorPrincipal.Id != 0)
+                bLanzar.Enabled = false;
         }
 
         private void Ventana_Juego_Load(object sender, EventArgs e)
@@ -70,6 +67,38 @@ namespace MonopolioRedes.Vista
         private void lJugadores_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        public void MostrarJugadores()
+        {
+            lJugadores.Invoke(new Action(InvokeMostrarJugadores));
+        }
+
+        public void JugadorPrincipal()
+        {
+
+        }
+
+        private void InvokeMostrarJugadores()
+        {
+            lJugadores.Items.Clear();
+            string principal = "";
+
+            foreach (Jugador jugador in Juego_Actual.JugadoresConectados.OrderBy(x => x.Id))
+            {
+                if (jugador.Principal)
+                    principal = "(Yo)";
+                else
+                    principal = "";
+
+                lJugadores.Items.Add(jugador.Id+" "+principal+": Monedero: " + jugador.Cartera + " Propiedades: " + jugador.Propiedades.Count);
+            }
+
+        }
+
+        private void bLanzar_Click_1(object sender, EventArgs e)
+        {
+            controla.LanzarDado(_jugadorPrincipal);
         }
     }
 }

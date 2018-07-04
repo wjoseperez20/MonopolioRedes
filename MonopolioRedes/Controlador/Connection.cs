@@ -159,6 +159,12 @@ namespace MonopolioRedes.Controlador
                 ChangeStatus(true);
                 return;
             }
+
+            if (control.Equals(Global_Variable.control_tirarDados))
+            {
+                Recibir_DadoJugador();
+                return;
+            }
         }
 
         private void Trama_incorrecta()
@@ -256,6 +262,8 @@ namespace MonopolioRedes.Controlador
                     if (bit_modo.Equals("0"))
                     {
                         _Jugador = Controla.CrearJugador(contador + 1);
+                        _Jugador.Turno_Activo = false;
+                        _Jugador.Principal = true;
                         Enviar_trama(total_flag[1], (resto + 1));
                     }
                     else
@@ -295,6 +303,36 @@ namespace MonopolioRedes.Controlador
         public void Set_Juego_Form(Ventana_Juego game_form)
         {
             Juego_Form = game_form;
+        }
+
+        private void Recibir_DadoJugador()
+        {
+
+            byte_2 = byte_to_string(total_flag[1]);
+            byte_3 = byte_to_string(total_flag[2]);
+
+            int id_usuario = Controla.get_origen(byte_2);
+
+            if (id_equal_jugador(id_usuario))
+            {
+                return;
+            }
+
+            Controla.ActualizarPosicionJugador(id_usuario, byte_3);
+
+            Reenviar_trama();
+
+        }
+
+        private bool id_equal_jugador(int id)
+        {
+            return (id == Juego_Actual.JugadoresConectados.Find(j => j.Principal == true).Id);
+        }
+
+        private string byte_to_string(int _byte)
+        {
+            string byte_string = Convert.ToString(_byte, 2).PadLeft(8, '0');
+            return byte_string;
         }
     }
 }
