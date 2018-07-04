@@ -93,6 +93,16 @@ namespace MonopolioRedes.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MonopolioGentleman {
+            get {
+                object obj = ResourceManager.GetObject("MonopolioGentleman", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap tablero {
             get {
                 object obj = ResourceManager.GetObject("tablero", resourceCulture);
