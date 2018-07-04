@@ -23,12 +23,12 @@ namespace MonopolioRedes.Vista
 
         public Ventana_Juego(Juego _Juego, Form _MainForm, Main _controla)
         {
+            InitializeComponent();
             controla = _controla;
             Juego_Actual = _Juego;
             //Jugador_Principal = Juego_Actual.Jugadores.Find(j => j.Jugador_Principal == true);
             MainForm = _MainForm;
           // AsignarJugadores();
-           // InitializeComponent();
            // AsignarNombres();
            // ActualizarDatos();
            // LlenarDataGrid(Jugador_Principal);
@@ -50,6 +50,11 @@ namespace MonopolioRedes.Vista
         private void lTablero_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Ventana_Juego_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            System.Environment.Exit(1);
         }
 
         private void bSaltarTurno_Click(object sender, EventArgs e)

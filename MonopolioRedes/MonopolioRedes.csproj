@@ -147,11 +147,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <None Include="Resources\dado.jpg" />
     <Content Include="Resources\favicon.ico" />
     <Content Include="Resources\FichaAzul.png" />
     <Content Include="Resources\FichaRoja.png" />
     <Content Include="Resources\FichaVerde.png" />
     <Content Include="Resources\tablero.jpg" />
+    <None Include="Resources\tablero1.jpg" />
     <Content Include="Resources\Tarjetas\ArcaComunal\Ir_Carcel.png" />
     <Content Include="Resources\Tarjetas\ArcaComunal\Recibir_10.png" />
     <Content Include="Resources\Tarjetas\ArcaComunal\Recibir_100.png" />

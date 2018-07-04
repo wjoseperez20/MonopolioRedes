@@ -63,6 +63,16 @@ namespace MonopolioRedes.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dado {
+            get {
+                object obj = ResourceManager.GetObject("dado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FichaAmarilla {
             get {
                 object obj = ResourceManager.GetObject("FichaAmarilla", resourceCulture);
@@ -76,6 +86,16 @@ namespace MonopolioRedes.Properties {
         internal static System.Drawing.Bitmap FichaAzul {
             get {
                 object obj = ResourceManager.GetObject("FichaAzul", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tablero {
+            get {
+                object obj = ResourceManager.GetObject("tablero", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

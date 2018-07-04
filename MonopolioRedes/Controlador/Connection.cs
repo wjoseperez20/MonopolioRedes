@@ -153,6 +153,7 @@ namespace MonopolioRedes.Controlador
         {
 
             string control = Convert.ToString(total_flag[1], 2).PadLeft(8, '0').Substring(4, 4);
+
             if (!Global_Variable.Juego_Iniciado && control.Equals(Global_Variable.control_inicioPartida)) //conteo de jugadores (control: 0001)
             {
                 ChangeStatus(true);
@@ -205,6 +206,7 @@ namespace MonopolioRedes.Controlador
             bytes_sending[2] = Convert.ToByte(byte_3);
             bytes_sending[3] = Convert.ToByte(Convert.ToInt32(Global_Variable.bandera, 2));
             sp.Write(bytes_sending, 0, 4);
+
         }
 
         public void Enviar_Peticion_InicioPartida(Jugador _jugador_Peticion)
@@ -212,7 +214,7 @@ namespace MonopolioRedes.Controlador
             try
             {
                 Primer_Jugador = _jugador_Peticion;
-                Enviar_trama(Convert.ToInt32("00000001", 2), Convert.ToInt32("10000000", 2));
+                Enviar_trama(Convert.ToInt32("00000000", 2), Convert.ToInt32("10000000", 2));
             }
             catch (Exception e)
             {
