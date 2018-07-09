@@ -36,22 +36,23 @@
             this.lJugadores = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lDado = new System.Windows.Forms.Label();
+            this.lazul = new System.Windows.Forms.Label();
+            this.lamarillo = new System.Windows.Forms.Label();
+            this.lverde = new System.Windows.Forms.Label();
             this.lrojo = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.bLanzar = new System.Windows.Forms.Button();
             this.lTablero = new System.Windows.Forms.Label();
-            this.lverde = new System.Windows.Forms.Label();
-            this.lamarillo = new System.Windows.Forms.Label();
-            this.lazul = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // bSaltarTurno
             // 
             this.bSaltarTurno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.bSaltarTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bSaltarTurno.Location = new System.Drawing.Point(958, 426);
+            this.bSaltarTurno.Location = new System.Drawing.Point(1076, 535);
+            this.bSaltarTurno.Margin = new System.Windows.Forms.Padding(4);
             this.bSaltarTurno.Name = "bSaltarTurno";
-            this.bSaltarTurno.Size = new System.Drawing.Size(195, 64);
+            this.bSaltarTurno.Size = new System.Drawing.Size(260, 79);
             this.bSaltarTurno.TabIndex = 24;
             this.bSaltarTurno.Text = "Pasar Turno";
             this.bSaltarTurno.UseVisualStyleBackColor = false;
@@ -61,9 +62,10 @@
             // 
             this.bComprarPropiedad.BackColor = System.Drawing.Color.Lime;
             this.bComprarPropiedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bComprarPropiedad.Location = new System.Drawing.Point(757, 426);
+            this.bComprarPropiedad.Location = new System.Drawing.Point(808, 535);
+            this.bComprarPropiedad.Margin = new System.Windows.Forms.Padding(4);
             this.bComprarPropiedad.Name = "bComprarPropiedad";
-            this.bComprarPropiedad.Size = new System.Drawing.Size(195, 63);
+            this.bComprarPropiedad.Size = new System.Drawing.Size(260, 78);
             this.bComprarPropiedad.TabIndex = 19;
             this.bComprarPropiedad.Text = "Comprar Propiedad";
             this.bComprarPropiedad.UseVisualStyleBackColor = false;
@@ -72,19 +74,21 @@
             // 
             this.lJugadorPropiedades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lJugadorPropiedades.FormattingEnabled = true;
-            this.lJugadorPropiedades.ItemHeight = 16;
-            this.lJugadorPropiedades.Location = new System.Drawing.Point(754, 163);
+            this.lJugadorPropiedades.ItemHeight = 20;
+            this.lJugadorPropiedades.Location = new System.Drawing.Point(804, 212);
+            this.lJugadorPropiedades.Margin = new System.Windows.Forms.Padding(4);
             this.lJugadorPropiedades.Name = "lJugadorPropiedades";
-            this.lJugadorPropiedades.Size = new System.Drawing.Size(399, 164);
+            this.lJugadorPropiedades.Size = new System.Drawing.Size(531, 184);
             this.lJugadorPropiedades.TabIndex = 28;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(754, 144);
+            this.label2.Location = new System.Drawing.Point(804, 188);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 16);
+            this.label2.Size = new System.Drawing.Size(155, 20);
             this.label2.TabIndex = 27;
             this.label2.Text = "Mis Propiedades:";
             // 
@@ -92,10 +96,11 @@
             // 
             this.lJugadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lJugadores.FormattingEnabled = true;
-            this.lJugadores.ItemHeight = 16;
-            this.lJugadores.Location = new System.Drawing.Point(754, 28);
+            this.lJugadores.ItemHeight = 20;
+            this.lJugadores.Location = new System.Drawing.Point(796, 46);
+            this.lJugadores.Margin = new System.Windows.Forms.Padding(4);
             this.lJugadores.Name = "lJugadores";
-            this.lJugadores.Size = new System.Drawing.Size(399, 100);
+            this.lJugadores.Size = new System.Drawing.Size(531, 104);
             this.lJugadores.TabIndex = 26;
             this.lJugadores.SelectedIndexChanged += new System.EventHandler(this.lJugadores_SelectedIndexChanged);
             // 
@@ -103,9 +108,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(754, 9);
+            this.label1.Location = new System.Drawing.Point(804, 22);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(177, 16);
+            this.label1.Size = new System.Drawing.Size(213, 20);
             this.label1.TabIndex = 25;
             this.label1.Text = "Jugadores en la partida:";
             // 
@@ -113,29 +119,66 @@
             // 
             this.lDado.AutoSize = true;
             this.lDado.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lDado.Location = new System.Drawing.Point(1045, 365);
+            this.lDado.Location = new System.Drawing.Point(1192, 460);
+            this.lDado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lDado.Name = "lDado";
-            this.lDado.Size = new System.Drawing.Size(76, 25);
+            this.lDado.Size = new System.Drawing.Size(92, 31);
             this.lDado.TabIndex = 30;
             this.lDado.Text = "label4";
+            // 
+            // lazul
+            // 
+            this.lazul.BackColor = System.Drawing.Color.Transparent;
+            this.lazul.Image = global::MonopolioRedes.Properties.Resources.FichaAzul1;
+            this.lazul.Location = new System.Drawing.Point(526, 529);
+            this.lazul.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lazul.Name = "lazul";
+            this.lazul.Size = new System.Drawing.Size(31, 26);
+            this.lazul.TabIndex = 34;
+            this.lazul.Click += new System.EventHandler(this.lazul_Click);
+            // 
+            // lamarillo
+            // 
+            this.lamarillo.BackColor = System.Drawing.Color.Transparent;
+            this.lamarillo.Image = global::MonopolioRedes.Properties.Resources.FichaAmarilla1;
+            this.lamarillo.Location = new System.Drawing.Point(487, 529);
+            this.lamarillo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lamarillo.Name = "lamarillo";
+            this.lamarillo.Size = new System.Drawing.Size(31, 26);
+            this.lamarillo.TabIndex = 33;
+            this.lamarillo.Click += new System.EventHandler(this.lamarillo_Click);
+            // 
+            // lverde
+            // 
+            this.lverde.BackColor = System.Drawing.Color.Transparent;
+            this.lverde.Image = global::MonopolioRedes.Properties.Resources.FichaVerde;
+            this.lverde.Location = new System.Drawing.Point(526, 491);
+            this.lverde.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lverde.Name = "lverde";
+            this.lverde.Size = new System.Drawing.Size(31, 26);
+            this.lverde.TabIndex = 32;
+            this.lverde.Click += new System.EventHandler(this.lverde_Click);
             // 
             // lrojo
             // 
             this.lrojo.BackColor = System.Drawing.Color.Transparent;
             this.lrojo.Image = global::MonopolioRedes.Properties.Resources.FichaRoja;
-            this.lrojo.Location = new System.Drawing.Point(649, 664);
+            this.lrojo.Location = new System.Drawing.Point(487, 491);
+            this.lrojo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lrojo.Name = "lrojo";
-            this.lrojo.Size = new System.Drawing.Size(23, 21);
+            this.lrojo.Size = new System.Drawing.Size(31, 26);
             this.lrojo.TabIndex = 31;
+            this.lrojo.Click += new System.EventHandler(this.lrojo_Click);
             // 
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Image = ((System.Drawing.Image)(resources.GetObject("label3.Image")));
             this.label3.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label3.Location = new System.Drawing.Point(1043, 651);
+            this.label3.Location = new System.Drawing.Point(1391, 801);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 80);
+            this.label3.Size = new System.Drawing.Size(140, 98);
             this.label3.TabIndex = 29;
             // 
             // bLanzar
@@ -144,9 +187,10 @@
             this.bLanzar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bLanzar.Image = global::MonopolioRedes.Properties.Resources.dado;
             this.bLanzar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.bLanzar.Location = new System.Drawing.Point(754, 345);
+            this.bLanzar.Location = new System.Drawing.Point(804, 436);
+            this.bLanzar.Margin = new System.Windows.Forms.Padding(4);
             this.bLanzar.Name = "bLanzar";
-            this.bLanzar.Size = new System.Drawing.Size(271, 65);
+            this.bLanzar.Size = new System.Drawing.Size(361, 80);
             this.bLanzar.TabIndex = 18;
             this.bLanzar.Text = "TIRAR DADO";
             this.bLanzar.UseVisualStyleBackColor = false;
@@ -158,44 +202,18 @@
             this.lTablero.Image = global::MonopolioRedes.Properties.Resources.tablero;
             this.lTablero.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.lTablero.Location = new System.Drawing.Point(-1, -1);
+            this.lTablero.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lTablero.Name = "lTablero";
-            this.lTablero.Size = new System.Drawing.Size(749, 814);
+            this.lTablero.Size = new System.Drawing.Size(753, 706);
             this.lTablero.TabIndex = 8;
             this.lTablero.Click += new System.EventHandler(this.lTablero_Click);
             // 
-            // lverde
-            // 
-            this.lverde.BackColor = System.Drawing.Color.Transparent;
-            this.lverde.Image = global::MonopolioRedes.Properties.Resources.FichaVerde;
-            this.lverde.Location = new System.Drawing.Point(678, 664);
-            this.lverde.Name = "lverde";
-            this.lverde.Size = new System.Drawing.Size(23, 21);
-            this.lverde.TabIndex = 32;
-            // 
-            // lamarillo
-            // 
-            this.lamarillo.BackColor = System.Drawing.Color.Transparent;
-            this.lamarillo.Image = global::MonopolioRedes.Properties.Resources.FichaAmarilla1;
-            this.lamarillo.Location = new System.Drawing.Point(649, 695);
-            this.lamarillo.Name = "lamarillo";
-            this.lamarillo.Size = new System.Drawing.Size(23, 21);
-            this.lamarillo.TabIndex = 33;
-            // 
-            // lazul
-            // 
-            this.lazul.BackColor = System.Drawing.Color.Transparent;
-            this.lazul.Image = global::MonopolioRedes.Properties.Resources.FichaAzul1;
-            this.lazul.Location = new System.Drawing.Point(678, 695);
-            this.lazul.Name = "lazul";
-            this.lazul.Size = new System.Drawing.Size(23, 21);
-            this.lazul.TabIndex = 34;
-            // 
             // Ventana_Juego
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(1156, 740);
+            this.ClientSize = new System.Drawing.Size(1457, 697);
             this.Controls.Add(this.lazul);
             this.Controls.Add(this.lamarillo);
             this.Controls.Add(this.lverde);
@@ -211,7 +229,7 @@
             this.Controls.Add(this.bLanzar);
             this.Controls.Add(this.lTablero);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Ventana_Juego";
             this.Text = "Ventana_Juego";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Ventana_Juego_FormClosed);

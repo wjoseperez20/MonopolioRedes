@@ -135,6 +135,24 @@ namespace MonopolioRedes.Vista
             controla.LanzarDado(_jugadorPrincipal);
         }
 
+        private void lrojo_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void lazul_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lamarillo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lverde_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
